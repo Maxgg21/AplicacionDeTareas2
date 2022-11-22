@@ -1,16 +1,23 @@
+const { guardarTarea } = require('./funcionesDeTareas');
 let archivoTareas = require('./funcionesDeTareas');
 
-//Si desea investigar un poco más sobre este módulo nativo de NodeJs
-//https://nodejs-es.github.io/api/process.html#process_es_process 
 let accion = process.argv[2];
 
 switch(accion) {
     case 'listar':
+        // Se requieren el Json para listarlo por pantalla.
         console.log('Listado de tareas');
         console.log('------------------');
-        // Se requieren el Json para listarlo por pantalla. 
         let tareas = archivoTareas.leerArchivo();
         tareas.forEach((tarea, i) => console.log(`${i + 1}: ${tarea.titulo}.`)) 
+        break;
+    case 'crear':
+        let titulo = process.argv[3];
+        let tareaNueva = {
+            titulo,
+            estado : 'pendiente'
+        };
+        archivoTareas.guardarTarea(tareaNueva);
         break;
     case undefined:
         console.log();    

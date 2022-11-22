@@ -1,14 +1,22 @@
 [
-    {
-        "titulo": "Repasar JS",
-        "estado": "terminada"
-    },
-    {
-        "titulo": "Armar aplicación de Tareas",
-        "estado": "en progreso"
-    },
-    {
-        "titulo": "Break",
-        "estado": "pendiente"
-    }
+  {
+    "titulo": "Repasar JS",
+    "estado": "terminada"
+  },
+  {
+    "titulo": "Armar aplicación de Tareas",
+    "estado": "en progreso"
+  },
+  {
+    "titulo": "Break",
+    "estado": "pendiente"
+  },
+  {
+    "titulo": "Refactorizar app de concesionaria",
+    "estado": "pendiente"
+  },
+  {
+    "titulo": "refactorizar app movie",
+    "estado": "pendiente"
+  }
 ]
