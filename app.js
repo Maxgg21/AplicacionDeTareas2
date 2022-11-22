@@ -8,13 +8,9 @@ switch(accion) {
     case 'listar':
         console.log('Listado de tareas');
         console.log('------------------');
-        // let tareas = archivoTareas.leerArchivo();
-        // for (let i = 0;  i < tareas.length; i++) {
-        //     console.log((i + 1) +'. ' + tareas[i].titulo + ' - ' + tareas[i].estado);
-        // }
-        // console.log()
+        // Se requieren el Json para listarlo por pantalla. 
         let tareas = archivoTareas.leerArchivo();
-        tareas.forEach((tarea, i) => console.log(`${i + 1}: ${tarea.titulo}.`))
+        tareas.forEach((tarea, i) => console.log(`${i + 1}: ${tarea.titulo}.`)) 
         break;
     case undefined:
         console.log();    
