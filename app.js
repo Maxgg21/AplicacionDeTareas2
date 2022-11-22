@@ -12,7 +12,12 @@ switch(accion) {
         tareas.forEach((tarea, i) => console.log(`${i + 1}: ${tarea.titulo}.`)) 
         break;
     case 'crear':
+        //Se registra nueva tarea con estado pendiente para ser guardada en el JSON. Se coloco una validacion para avisar que no ingreso una nueva tarea
         let titulo = process.argv[3];
+        if (typeof titulo === 'undefined'){
+            console.log('No ingreso el titulo de la tarea a guardar');
+            return ;
+        }
         let tareaNueva = {
             titulo,
             estado : 'pendiente'
