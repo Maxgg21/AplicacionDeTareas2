@@ -1,4 +1,5 @@
-const { guardarTarea } = require('./funcionesDeTareas');
+const { type } = require('os');
+const { guardarTarea, filtrarPorEstado } = require('./funcionesDeTareas');
 let archivoTareas = require('./funcionesDeTareas');
 
 let accion = process.argv[2];
@@ -16,13 +17,23 @@ switch(accion) {
         let titulo = process.argv[3];
         if (typeof titulo === 'undefined'){
             console.log('No ingreso el titulo de la tarea a guardar');
-            return ;
+            return;
         }
         let tareaNueva = {
             titulo,
             estado : 'pendiente'
         };
         archivoTareas.guardarTarea(tareaNueva);
+        break;
+    case 'filtrar':
+        //Se coloca validaciones de datos, si cuando se ejecula la funcion de filtrar por estado luego se la itera para mostar por pantalla.
+        let estado = process.argv[3];
+        if(typeof estado === 'undefined'){
+            console.log('No ingreso el titulo de la tarea que buscas');
+            return;
+        };
+        let tareasFiltradas = filtrarPorEstado(estado);
+        tareasFiltradas.forEach((tarea, i) => console.log(`-- ${tarea.titulo}`))
         break;
     case undefined:
         console.log();    
