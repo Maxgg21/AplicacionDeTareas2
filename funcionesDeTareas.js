@@ -20,5 +20,15 @@ let archivoTareas = {
         //Se require un json para ser filtrado
         return archivoTareas.leerArchivo().filter((tarea) => tarea.estado === estado)
     },
+    searchTask: function(tarea){
+        //Se requiere un json para buscar un tarea en particular
+        let dato = archivoTareas.leerArchivo();
+        let search = dato.find((task) => task.titulo === tarea);
+        let searchDetelle = `
+        titulo: ${search.titulo}
+        estado: ${search.estado}
+        `;
+        return searchDetelle; 
+    },
 }
 module.exports = archivoTareas;

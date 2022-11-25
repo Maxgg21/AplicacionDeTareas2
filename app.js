@@ -1,5 +1,4 @@
-const { type } = require('os');
-const { guardarTarea, filtrarPorEstado } = require('./funcionesDeTareas');
+// const { guardarTarea, filtrarPorEstado, searchTask } = require('./funcionesDeTareas');
 let archivoTareas = require('./funcionesDeTareas');
 
 let accion = process.argv[2];
@@ -29,12 +28,23 @@ switch(accion) {
         //Se coloca validaciones de datos, si cuando se ejecula la funcion de filtrar por estado luego se la itera para mostar por pantalla.
         let estado = process.argv[3];
         if(typeof estado === 'undefined'){
-            console.log('No ingreso el titulo de la tarea que buscas');
+            console.log('No ingreso el titulo de la tarea a filtrar');
             return;
         };
         let tareasFiltradas = filtrarPorEstado(estado);
-        tareasFiltradas.forEach((tarea, i) => console.log(`-- ${tarea.titulo}`))
+        tareasFiltradas.forEach((tarea) => console.log(`-- ${tarea.titulo}`))
         break;
+    case 'buscarTarea':
+        //Se ejecuta la funcion busqueda para mostrarla por pantalla
+        let tarea = process.argv[3];
+        if(typeof tarea === 'undefined'){
+            console.log('No ingreso el titulo de la tarea a buscar');
+            return;
+        };
+        let resultado = archivoTareas.searchTask(tarea);
+        console.log(resultado);
+        break;
+    
     case undefined:
         console.log();    
         console.log('Atención - Tienes que pasarme una acción');
